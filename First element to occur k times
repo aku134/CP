@@ -1,0 +1,17 @@
+#Link https://practice.geeksforgeeks.org/problems/first-element-to-occur-k-times5150/1?page=1
+
+from collections import defaultdict
+class Solution:
+    def firstElementKTime(self,  a, n, k):
+        # code here
+        
+        #Hashing
+        dict=defaultdict(int)
+        for i in a:
+            dict[i]+=1
+            if(dict[i]==k):
+                return i
+        else:
+            return -1
+#Time complexity: O(N)
+#Space Compexity:O(N)
