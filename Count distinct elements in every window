@@ -1,0 +1,22 @@
+#Sliding Window
+from collections import defaultdict
+class Solution:
+    def countDistinct(self, A, N, K):
+        # Code here
+        ans=[]
+        t=defaultdict(int)
+        i=0
+        j=0
+        while(j<N):
+            
+            t[A[j]]+=1
+            if(j-i+1==K):
+                ans.append(len(t))
+                if(t[A[i]]>1):
+                    t[A[i]]-=1 
+        
+                else:
+                    t.pop(A[i])
+                i+=1 
+            j+=1
+        return ans
