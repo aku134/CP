@@ -1,0 +1,24 @@
+#Sliding window
+class Solution:
+    def subArraySum(self,arr, n, s): 
+       #Write your code here
+       i=1
+       j=0
+       ans=[]
+       tot=arr[0]
+       while(i<=n):
+    
+            while(tot>s and j<i-1):
+               tot-=arr[j]
+               j+=1
+               
+            if(tot==s):
+               ans.append(j+1)
+               ans.append(i)
+               break
+            if(i<n):
+               tot+=arr[i]
+            i+=1       
+       if(len(ans)==0):
+            ans.append(-1)
+       return ans
