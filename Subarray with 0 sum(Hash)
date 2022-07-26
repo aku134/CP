@@ -1,0 +1,17 @@
+class Solution:
+    
+    #Function to check whether there is a subarray present with 0-sum or not.
+    def subArrayExists(self,arr,n):
+        #HashSet
+        ##Your code here
+        #Return true or false
+        t=set()
+        s=0
+        for i in range(len(arr)):
+            if(arr[i]==0):
+                return True
+            s+=arr[i]
+            if(s==0 or s in t):
+                return True
+            t.add(s)
+        return False
