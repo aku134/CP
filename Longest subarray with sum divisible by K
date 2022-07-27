@@ -1,0 +1,18 @@
+from collections import defaultdict
+class Solution:
+	def longSubarrWthSumDivByK (self,arr,  n, K) : 
+		#Complete the function
+		l=0
+		sum=0
+		dict=defaultdict(int)
+		for i in range(n):
+		    sum+=arr[i]
+		    m=sum%K
+		    if m==0:
+		        l=i+1
+		    elif m in dict.keys():
+		        if l < i-dict[m]:
+		           l=i-dict[m]
+		    else:
+		        dict[m]=i
+		return l
