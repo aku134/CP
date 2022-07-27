@@ -1,0 +1,23 @@
+def printFirstNegativeInteger( A, N, K):
+    # code here
+    #Sliding window
+        i=0
+        j=0
+        l=[]
+        res=[]
+        while(j<N):
+            if(A[j]<0):#check for negative value
+                l.append(A[j])#if yes append to list
+            if(j-i+1<K):#if window not complete increment j
+                j+=1
+            elif(j-i+1==K):#when end of window reaches
+                if(len(l)==0):#if(list is empty the append 0)
+                    res.append(0)
+                else:
+                    res.append(l[0])#else append negative number in result
+                    if(A[i]==l[0]):
+                        l.pop(0)
+                i+=1
+                j+=1
+        return res
+                
